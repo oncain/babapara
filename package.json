@@ -1,0 +1,16 @@
+{
+  "name": "smart-money-live-tracker-server",
+  "version": "1.0.0",
+  "description": "Headless-browser based 24/7 watcher for a Binance Smart Money profile, with a live WebSocket dashboard.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "setup-browser": "playwright install --with-deps chromium"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "playwright": "^1.46.0",
+    "ws": "^8.18.0"
+  }
+}

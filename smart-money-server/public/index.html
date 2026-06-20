@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Smart Money Live Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◈</span>
+        <div class="brand-text">
+          <span class="brand-title">SMART MONEY LIVE TRACKER</span>
+          <span class="brand-sub">trades_berserk · Binance Futures USDⓈ-M</span>
+        </div>
+      </div>
+      <div class="conn-status" id="connStatus">
+        <span class="dot" id="connDot"></span>
+        <span id="connLabel">BAĞLANTI ARANIYOR</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="vault-row">
+        <div class="vault-card">
+          <span class="vault-label">BENİM SABİT KASAM</span>
+          <span class="vault-value">$1,000.00</span>
+          <span class="vault-foot">Referans Sermaye</span>
+        </div>
+        <div class="vault-card">
+          <span class="vault-label">KULLANILAN KASA</span>
+          <span class="vault-value" id="vaultUsedPct">0.0%</span>
+          <span class="vault-foot" id="vaultUsedUsd">$0.00 dağıtıldı</span>
+        </div>
+        <div class="vault-card">
+          <span class="vault-label">TRADER MARJ BAKİYESİ</span>
+          <span class="vault-value" id="traderBalance">—</span>
+          <span class="vault-foot">Binance Smart Money</span>
+        </div>
+        <div class="vault-card">
+          <span class="vault-label">AÇIK POZİSYON</span>
+          <span class="vault-value" id="openCount">0</span>
+          <span class="vault-foot" id="lastUpdateFoot">son güncelleme —</span>
+        </div>
+      </section>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="positions">POZİSYONLAR</button>
+        <button class="tab" data-tab="history">GEÇMİŞ</button>
+      </nav>
+
+      <section class="panel" id="positionsPanel">
+        <div class="empty-state" id="positionsEmpty">
+          <span class="empty-glyph">▢</span>
+          <p>Açık pozisyon bulunamadı.</p>
+          <p class="empty-sub">Sunucu arka planda izlemeye devam ediyor, yeni pozisyon anında burada belirir.</p>
+        </div>
+        <div class="position-grid" id="positionList"></div>
+      </section>
+
+      <section class="panel hidden" id="historyPanel">
+        <div class="empty-state" id="historyEmpty">
+          <span class="empty-glyph">▢</span>
+          <p>Henüz kapanmış pozisyon yok.</p>
+        </div>
+        <div class="position-grid" id="historyList"></div>
+      </section>
+    </main>
+
+    <footer class="status-bar">
+      <span id="statusMessage">Sistem başlatılıyor...</span>
+      <span class="status-bar-sep">·</span>
+      <span id="serverTime"></span>
+    </footer>
+  </div>
+
+  <div class="toast-stack" id="toastStack"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
